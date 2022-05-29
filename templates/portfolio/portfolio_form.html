@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container" style="margin-top:100px">
+    <article data-aos="flip-left" class="media content-section">
+        <div class="media-body">
+            {% if user.is_superuser %}
+            <h1>New Article</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-outline-success">New</button>
+            </form>
+            {% endif %}
+        </div>
+    </article>
+</div>
+
+{% endblock content %}

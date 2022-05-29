@@ -1,0 +1,152 @@
+{% load static %}
+
+
+<footer class="py-5 mt-5 bg-light">
+        
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-3 mb-3">
+                    <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="{% url 'home' %}" aria-label="">
+                        <img src="{% static 'favicon/android-chrome-512x512.png' %}" width="40" height="32" class="d-block me-2">
+                    </a>
+                    <div class="text-muted">
+                        <p class="mb-2">
+                            Currently v2.3.0
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="{% url 'home' %}" class="text-decoration-none">Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'portfolio' %}" class="text-decoration-none">Portfolio</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="mb-2">
+                            <a href="{% url 'profile' %}" class="text-decoration-none">Acount</a>
+                        </li>
+                        {% if user.is_superuser %}
+                        <span id="totalslary" class="m-3 text-primary"></span>
+                        <li class="mb-2">
+                            <a href="{% url 'stack-create' %}" class="text-decoration-none">New Stack</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'stack' %}" class="text-decoration-none">Stack</a>
+                        </li>
+                            
+                        <li class="mb-2">
+                            <a href="{% url 'blog' %}" class="text-decoration-none">Blog</a>
+                        </li>
+                        
+                        <li class="mb-2">
+                            <a href="{% url 'certificate' %}" class="text-decoration-none">Cer</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'roadmap' %}" class="text-decoration-none">Roadmap</a>
+                        </li>
+                        
+                        <li class="mb-2">
+                            <a href="{% url 'outil-create' %}" class="text-decoration-none">New Outil</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'outil' %}" class="text-decoration-none">Outils</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% static 'jamalelkhdadi_web.pdf' %}" class="text-decoration-none">cv</a>
+                        </li>
+                        {% endif %}
+                        {% else %}
+                        <li class="mb-2">
+                            <a href="{% url 'login' %}" class="text-decoration-none">Login</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'register' %}" class="text-decoration-none">Register</a>
+                        </li>
+                        {% endif %}
+                        <li class="mb-2">
+                            <a href="{% url 'contact' %}" class="text-decoration-none">Contact</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a class="text-decoration-none" href="{% url 'policy' %}">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="text-muted text-decoration-none" href="#!">
+                                Terms of Use
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="text-decoration-none" href="{% url 'license' %}" rel="license noopener">
+                                Code License
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 m-2 my-lg-0">
+                    <a class="btn btn-outline-primary m-2" href="https://twitter.com/jamal_elkhdadi?s=09">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-outline-primary m-2" href="https://www.linkedin.com/in/jamalelkhdadi">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a class="btn btn-outline-dark m-2" href="https://github.com/jamalelkhdadi">
+                        <i class="fa fa-github"></i>
+                    </a>
+                    <a class="btn btn-outline-danger m-2" href="https://viadeo.journaldunet.com/p/jamal-el-khdadi-3823867">
+                        <i class="fa fa-viadeo"></i>
+                    </a>
+                    <a class="btn btn-outline-dark m-2" href="https://codepen.io/jamalelkhdadi">
+                        <i class="fa fa-codepen"></i>
+                    </a>
+                    <a class="btn btn-outline-success m-2" href="https://nouvelespaced-i3f3175.slack.com">
+                        <i class="fa fa-slack"></i>
+                    </a>
+                        
+                        
+             <!--
+                    <a class="btn btn-outline-info m-1" href="https://opencollective.com/jamal-el-khdadi">
+                        <i class="fab fa-open-collective" aria-hidden="true"></i>
+                    </a>       
+                <li class="nav-item col-6 col-md-auto">
+                    <a class="nav-link p-2" href="" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" fill-rule="evenodd" class="navbar-nav-svg d-inline-block align-text-top" viewBox="0 0 40 41" role="img">
+                            <title>Open Collective</title>
+                            <path fill-opacity=".4" d="M32.8 21c0 2.4-.8 4.9-2 6.9l5.1 5.1c2.5-3.4 4.1-7.6 4.1-12 0-4.6-1.6-8.8-4-12.2L30.7 14c1.2 2 2 4.3 2 7z" />
+                            <path d="M20 33.7a12.8 12.8 0 0 1 0-25.6c2.6 0 5 .7 7 2.1L32 5a20 20 0 1 0 .1 31.9l-5-5.2a13 13 0 0 1-7 2z" />
+                        </svg>
+                        <i class="fa fa-open-collective"></i>
+                        <small class="d-md-none ms-2">Open Collective</small>
+                    </a>
+                </li>
+                -->
+       
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer class="bd-footer p-3 j-bg p-md-5 text-center text-sm-start">
+        <div class="container text-center j-bg">
+            <div class="text-lg-start mt-2 mb-2">
+                Copyright &copy; jamal el khdadi 2021
+            </div>
+            <span class="up">
+                 <i class="fa fa-angle-double-up p-2"></i>
+            </span>
+        </div>
+    </footer>

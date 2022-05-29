@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container p-4" style="margin-top:90px">
+    <div data-aos="flip-left" class="media m-2 my-3">
+        <div class="text-center">
+            <legend class="border-bottom mb-4">Profile Info</legend>
+            <img class="rounded-circle" width="70px" height="70px" src="{{ user.profile.image.url }}">
+           
+           
+            <br><code class="">@{{ user.username }} <img src="{{ user.profile.country.flag }}" width="22px"></code>
+        </div>
+        <div class="table-responsive">
+            <table class="table mt-4">
+                <tbody>
+                    <tr>
+                        <td>Username</td>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{ user.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{{ user.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td>{{ user.profile.country.name }} <img src="{{ user.profile.country.flag }}" width="22px"></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropProfile">
+                Update
+            </button>
+        </div>
+        
+    
+        
+        
+    </div>
+</div>
+ 
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdropProfile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Update Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form data-aos="flip-left" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="modal-body">
+              <fieldset class="form-group">
+                  {{ u_form|crispy }}
+                  {{ p_form|crispy }}
+              </fieldset>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
